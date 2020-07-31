@@ -1,0 +1,23 @@
+/*
+Theme Name: Creator Child (Mafeah)
+Theme URI: http://creator.elated-themes.com
+Description: A child theme of Creator Theme for the Mafeah website
+Author: TF
+Version: 0.0.1
+Template: creator
+Text Domain: creator
+*/
+
+:root{
+	--color-primary-button: #b79c7d;
+}
+
+.eltd-logo-area {
+	height: 100px !important;
+}
+
+button,
+[role=button],
+.elementor-button {
+	background-color: var(--color-primary-button) !important;
+}
