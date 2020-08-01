@@ -18,11 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+        with:
+          path: project
       - name: cleanup
         run: |
           rm -rf .git
           rm -rf .github
+        working-directory: project
 
       # no rsync available on the server so we need to use scp 
       - name: Deploy/Sync 🚀
@@ -31,4 +33,4 @@ jobs:
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
-          scp -o StrictHostKeyChecking=no -i ./deploy_key -r . ${{env.dest}}
+          scp -o StrictHostKeyChecking=no -i ./deploy_key -r ./project ${{env.dest}}
