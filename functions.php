@@ -64,6 +64,10 @@ function admin_style()
 
 add_action('admin_enqueue_scripts', 'admin_style');
 
+add_action('elementor/editor/before_enqueue_scripts', function () {
+    wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/style-admin.css');
+});
+
 // Custom Elementor stuff
 require_once 'elementor/categories.php';
 require_once 'elementor/widgets.php';
