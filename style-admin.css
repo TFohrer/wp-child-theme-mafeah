@@ -1,0 +1,6 @@
+/* hide elementor pro categories and widgets */
+#elementor-panel-category-pro-elements,
+#elementor-panel-category-woocommerce-elements,
+#elementor-panel-category-theme-elements {
+  display: none !important;
+}
