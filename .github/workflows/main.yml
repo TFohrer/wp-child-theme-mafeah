@@ -31,4 +31,4 @@ jobs:
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
-          scp -o StrictHostKeyChecking=no -i ./deploy_key . ${{env.dest}}
+          scp -o StrictHostKeyChecking=no -i ./deploy_key -r . ${{env.dest}}
