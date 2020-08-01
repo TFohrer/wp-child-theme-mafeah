@@ -9,30 +9,10 @@ Text Domain: creator
 */
 
 .eltd-logo-area {
-	height: 100px !important;
-}
-
-
-/* newsletter signup */
-
-.newsletter-signup__container {
-	display: flex;
-}
-
-.newsletter-signup__email {
-	width: 70%;
-}
-
-.newsletter-signup__submit {
-	width: 30%;
-}
-
-.newsletter-signup__email,
-.newsletter-signup__submit {
-	margin: 0;
+  height: 100px !important;
 }
 
 /* remove transition for objects with the class 'parallax' */
 .parallax {
-    transition: none !important;
+  transition: none !important;
 }

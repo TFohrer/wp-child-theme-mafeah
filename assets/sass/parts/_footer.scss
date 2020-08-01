@@ -1,0 +1,27 @@
+/* newsletter signup */
+
+.newsletter-signup__container {
+  display: flex;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.newsletter-signup__email {
+  width: 70%;
+}
+
+input.newsletter-signup__submit {
+  width: 30%;
+  padding-top: 16px !important;
+}
+
+.newsletter-signup__email,
+.newsletter-signup__email input,
+input.newsletter-signup__submit {
+  margin: 0 !important;
+}
+
+.newsletter-signup__email input,
+input.newsletter-signup__submit {
+  height: 45px;
+}
