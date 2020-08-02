@@ -75,6 +75,26 @@ require_once 'elementor/widgets.php';
 // Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
 
+// creator theme dynamic css
+/**
+ * Generates styles for header centered logo
+ */
+function creator_elated_header_centered_logo_styles()
+{
+    $logo_area_type_2_styles = [];
+
+    if (creator_elated_options()->getOptionValue('logo_area_height_header_centered') !== '') {
+        $logo_area_type_2_styles['height'] =
+            creator_elated_filter_px(creator_elated_options()->getOptionValue('logo_area_height_header_centered')) .
+            'px';
+    }
+
+    $logo_area_selector = '.eltd-header-centered .eltd-page-header .eltd-logo-area';
+    echo creator_elated_dynamic_css($logo_area_selector, $logo_area_type_2_styles);
+}
+
+add_action('creator_elated_style_dynamic', 'creator_elated_header_centered_logo_styles');
+
 // Parallax (TODO move to js file and optimize)
 
 function jquery_parallax()

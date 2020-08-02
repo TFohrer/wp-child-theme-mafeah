@@ -91,6 +91,8 @@ class My_Elementor_Widgets
         'wp-widget-eltd_woocommerce_dropdown_cart',
     ];
 
+    protected $elementor;
+
     public static function get_instance()
     {
         if (!isset(static::$instance)) {
@@ -102,6 +104,8 @@ class My_Elementor_Widgets
 
     protected function __construct()
     {
+        $this->elementor = Elementor\Plugin::instance();
+
         $this->include_widgets_files();
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
         add_action('elementor/widgets/widgets_registered', [$this, 'remove_widgets'], 200);
@@ -110,11 +114,13 @@ class My_Elementor_Widgets
     private function include_widgets_files()
     {
         require_once 'widgets/image-overlay.php';
+        require_once 'widgets/posts-carousel.php';
     }
 
     public function register_widgets()
     {
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Image_Overlay_Widget());
+        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Image_Overlay_Widget());
+        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Posts_Carousel_Widget());
     }
 
     public function remove_widgets()
@@ -127,6 +133,7 @@ class My_Elementor_Widgets
 }
 
 add_action('init', 'my_elementor_init');
+
 function my_elementor_init()
 {
     My_Elementor_Widgets::get_instance();
