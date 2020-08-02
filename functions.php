@@ -93,7 +93,7 @@ function creator_elated_header_centered_logo_styles()
     echo creator_elated_dynamic_css($logo_area_selector, $logo_area_type_2_styles);
 }
 
-add_action('creator_elated_style_dynamic', 'creator_elated_header_centered_logo_styles');
+add_action('creator_elated_style_dynamic', 'creator_elated_header_centered_logo_styles', 15);
 
 // Parallax (TODO move to js file and optimize)
 
