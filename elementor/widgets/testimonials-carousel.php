@@ -115,7 +115,7 @@ class Testimonials_Carousel_Widget extends Widget_Base
             $html .=
                 '<div class="eltd-testimonials eltd-standard' .
                 ' ' .
-                $skin .
+                $params['skin'] .
                 '" ' .
                 creator_elated_get_inline_attrs($data_attr) .
                 '>';
