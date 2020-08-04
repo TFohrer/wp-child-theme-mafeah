@@ -17,7 +17,7 @@ class Testimonials_Carousel_Widget extends Widget_Base
 
     public function get_icon()
     {
-        return 'icon-wpb-blog-list-carousel extended-custom-icon';
+        return 'fa fa-users';
     }
 
     public function get_categories()

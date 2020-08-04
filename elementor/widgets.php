@@ -113,15 +113,15 @@ class My_Elementor_Widgets
 
     private function include_widgets_files()
     {
-        require_once 'widgets/image-overlay.php';
-        require_once 'widgets/posts-carousel.php';
+        //require_once 'widgets/image-overlay.php';
+        //require_once 'widgets/posts-carousel.php';
         require_once 'widgets/testimonials-carousel.php';
     }
 
     public function register_widgets()
     {
-        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Image_Overlay_Widget());
-        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Posts_Carousel_Widget());
+        //$this->elementor->widgets_manager->register_widget_type(new \Elementor\Image_Overlay_Widget());
+        //$this->elementor->widgets_manager->register_widget_type(new \Elementor\Posts_Carousel_Widget());
         $this->elementor->widgets_manager->register_widget_type(new \Elementor\Testimonials_Carousel_Widget());
     }
 
