@@ -71,6 +71,7 @@ add_action('elementor/editor/before_enqueue_scripts', function () {
 // Custom Elementor stuff
 require_once 'elementor/categories.php';
 require_once 'elementor/widgets.php';
+require_once 'elementor/page-config.php';
 
 // Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');

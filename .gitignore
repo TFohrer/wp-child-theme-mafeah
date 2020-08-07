@@ -7,3 +7,10 @@ build/
 *.log
 *.sql
 *.sqlite
+
+# ignore phpstorm files
+*.iml
+modules.xml
+vcs.xml
+workspace.xml
+prettier.xml
