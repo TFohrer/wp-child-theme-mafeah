@@ -1,3 +1,31 @@
+$footer-color-text: #b79c7d;
+$footer-color-text--hover: #96664d;
+
+.footer__logo {
+  height: 100px;
+
+  img {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+  }
+}
+
+.footer__menu .menu {
+  @include breakpoint-up(md) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.footer__menu .menu-item a {
+  color: $footer-color-text;
+
+  &:hover {
+    color: $footer-color-text--hover;
+  }
+}
+
 /* newsletter signup */
 
 .newsletter-signup__container {
@@ -24,4 +52,21 @@ input.newsletter-signup__submit {
 .newsletter-signup__email input,
 input.newsletter-signup__submit {
   height: 45px;
+}
+
+footer .widget_eltd_social_icon_widget {
+  margin-top: 25px;
+
+  i {
+    font-size: 1.7em;
+  }
+
+  i:hover {
+    color: $footer-color-text--hover;
+  }
+}
+
+// bottom footer
+.eltd-footer-bottom-holder {
+  background-color: none;
 }
