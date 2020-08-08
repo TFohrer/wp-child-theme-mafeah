@@ -1,6 +1,11 @@
 $footer-color-text: #b79c7d;
 $footer-color-text--hover: #96664d;
 
+//TODO quick fix for now
+footer * {
+  font-family: 'Abel', Abel !important;
+}
+
 .footer__logo {
   height: 100px;
 
@@ -33,6 +38,19 @@ $footer-color-text--hover: #96664d;
 }
 
 /* newsletter signup */
+
+.footer__newsletter-text {
+  margin: 15px 0 20px;
+
+  @include breakpoint-up(sm) {
+    margin-top: 25px;
+  }
+
+  .eltd-footer-widget-title {
+    color: $footer-color-text;
+    font-size: 1.5em;
+  }
+}
 
 .newsletter-signup__container {
   display: flex;
@@ -77,13 +95,17 @@ footer .widget_eltd_social_icon_widget {
     margin: 8px;
   }
 
-  a:hover,
+  a:hover i,
   i:hover {
     color: $footer-color-text--hover;
   }
 }
 
+footer .textwidget {
+  color: $footer-color-text;
+}
+
 // bottom footer
 footer .eltd-footer-bottom-holder {
-  background-color: none;
+  background: none;
 }
