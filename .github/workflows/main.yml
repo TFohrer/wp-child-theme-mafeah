@@ -49,14 +49,14 @@ jobs:
           rm -rf .github
           rm -rf node_modules
           rm -rf .vscode
-          rm .gitignore
-          rm .eslintrc.json
-          rm .prettierrc
-          rm .package-lock.json
-          rm .package.json
-          rm yarn.lock
-          rm postcss.config.js
-          rm prettier.config.js 
+          rm -f .gitignore
+          rm -f .eslintrc.json
+          rm -f .prettierrc
+          rm -f .package-lock.json
+          rm -f .package.json
+          rm -f yarn.lock
+          rm -f postcss.config.js
+          rm -f prettier.config.js 
         working-directory: project
 
       # no rsync available on the server so we need to use scp
