@@ -116,6 +116,7 @@ class My_Elementor_Widgets
         //require_once 'widgets/image-overlay.php';
         //require_once 'widgets/posts-carousel.php';
         require_once 'widgets/testimonials-carousel.php';
+        require_once 'widgets/product-list.php';
     }
 
     public function register_widgets()
@@ -123,6 +124,7 @@ class My_Elementor_Widgets
         //$this->elementor->widgets_manager->register_widget_type(new \Elementor\Image_Overlay_Widget());
         //$this->elementor->widgets_manager->register_widget_type(new \Elementor\Posts_Carousel_Widget());
         $this->elementor->widgets_manager->register_widget_type(new \Elementor\Testimonials_Carousel_Widget());
+        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Product_List_Widget());
     }
 
     public function remove_widgets()

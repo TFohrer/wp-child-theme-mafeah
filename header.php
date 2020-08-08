@@ -37,7 +37,7 @@ if (!creator_elated_is_ajax_request() && creator_elated_options()->getOptionValu
 <div class="eltd-wrapper">
     <div class="eltd-wrapper-inner">
         <?php if (!creator_elated_is_ajax_request()) {
-            get_template_part('template-parts/header/header');
+            //get_template_part('template-parts/header/header');
             creator_elated_get_header();
         } ?>
 
