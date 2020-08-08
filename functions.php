@@ -23,8 +23,9 @@ if (!function_exists('creator_elated_child_theme_enqueue_scripts')) {
 /** additional styles */
 function load_style_files($manifest)
 {
+    $child_theme = 'creator-elated-handle-child-style';
     $cssFileURI = get_stylesheet_directory_uri() . '/build/' . $manifest['main.css'];
-    wp_enqueue_style('main_css', $cssFileURI);
+    wp_enqueue_style('main_css', $cssFileURI, [$child_theme]);
 
     //remove plugin styles
     wp_dequeue_style('wpuf-css');

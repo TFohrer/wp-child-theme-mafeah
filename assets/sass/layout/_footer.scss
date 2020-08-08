@@ -44,7 +44,7 @@ $footer-color-text--hover: #96664d;
   width: 70%;
 
   input {
-    background: none;
+    background: none !important;
   }
 }
 
@@ -53,7 +53,7 @@ input.newsletter-signup__submit {
   padding-top: 16px !important;
 
   &:hover {
-    border-color: #a27d53;
+    border-color: #a27d53 !important;
   }
 }
 
@@ -66,7 +66,7 @@ input.newsletter-signup__submit {
 .newsletter-signup__email input,
 input.newsletter-signup__submit {
   height: 45px;
-  border: 1px solid $footer-color-text;
+  border: 1px solid $footer-color-text !important;
 }
 
 footer .widget_eltd_social_icon_widget {
@@ -77,6 +77,7 @@ footer .widget_eltd_social_icon_widget {
     margin: 8px;
   }
 
+  a:hover,
   i:hover {
     color: $footer-color-text--hover;
   }
