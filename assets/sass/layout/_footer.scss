@@ -2,7 +2,7 @@ $footer-color-text: #b79c7d;
 $footer-color-text--hover: #96664d;
 
 //TODO quick fix for now
-footer * {
+footer *:not(i) {
   font-family: 'Abel', Abel !important;
 }
 
@@ -47,7 +47,7 @@ footer * {
   }
 
   .eltd-footer-widget-title {
-    color: $footer-color-text;
+    color: $footer-color-text !important;
     font-size: 1.5em;
   }
 }
