@@ -5,6 +5,9 @@ class Mafeah_Customizer
     private $wp_customize;
 
     private $defaults = [
+        'header' => [
+            'text-color' => '#96664d',
+        ],
         'footer' => [
             'bg-color' => '#333',
             'text-color' => '#b79c7d',
@@ -22,6 +25,32 @@ class Mafeah_Customizer
             'title' => __('Header', 'mafeah'),
             'priority' => 1,
         ]);
+
+        $this->wp_customize->add_setting('header_logo', [
+            'transport' => 'refresh',
+            'height' => 150,
+        ]);
+
+        $this->wp_customize->add_control(
+            new WP_Customize_Image_Control($this->wp_customize, 'header_logo', [
+                'label' => __('Header Logo', 'mafeah'),
+                'section' => 'mafeah_header_options',
+                'settings' => 'header_logo',
+            ])
+        );
+
+        $this->wp_customize->add_setting('header_text_color', [
+            'default' => $this->defaults['header']['text-color'],
+            'transport' => 'refresh',
+        ]);
+
+        $this->wp_customize->add_control(
+            new WP_Customize_Color_Control($this->wp_customize, 'header_text_color', [
+                'label' => 'Text Color',
+                'section' => 'mafeah_header_options',
+                'settings' => 'header_text_color',
+            ])
+        );
     }
 
     public function add_footer_options()
@@ -63,7 +92,7 @@ function mafeah_customize_register($wp_customize)
 {
     $mafeah_customizer = new Mafeah_Customizer($wp_customize);
 
-    //$mafeah_customizer->add_header_options();
+    $mafeah_customizer->add_header_options();
     $mafeah_customizer->add_footer_options();
 }
 
@@ -75,6 +104,7 @@ function mafeah_customizer_header_output()
     <style type="text/css">
 
         :root {
+            --header-text-color: <?php echo esc_attr(get_theme_mod('header_text_color')); ?>; 
             --footer-bg-color: <?php echo esc_attr(get_theme_mod('footer_background_color')); ?>;
             --footer-text-color: <?php echo esc_attr(get_theme_mod('footer_text_color')); ?>;
         }

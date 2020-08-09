@@ -2,3 +2,57 @@ header .eltd-menu-area {
   background: none !important;
   border: none !important;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header--fixed {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  width: 100%;
+}
+
+.header__left-area,
+.header__right-area {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+$margin-header-area: 20px;
+
+.header__left-area {
+  text-align: right;
+  margin-right: $margin-header-area;
+}
+
+.header__left-area {
+  margin-left: $margin-header-area;
+}
+
+.header__logo {
+  width: 175px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+// navigation
+.header__left-area nav,
+.header__right-area nav {
+  margin-top: 40px;
+}
+
+.header .menu-item .item_text {
+  color: var(--header-text-color);
+  font-size: 1rem;
+}
+
+// fix to show dropdown items (body has a z-index of 100)
+.header .eltd-drop-down .second {
+  z-index: 999 !important;
+}
