@@ -18,6 +18,7 @@ if (!function_exists('creator_elated_child_theme_enqueue_scripts')) {
 }
 
 //include_once 'elements/image-overlay.php';
+require_once 'admin/customizer.php';
 
 // Custom JS/CSS styles
 /** additional styles */

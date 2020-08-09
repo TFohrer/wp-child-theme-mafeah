@@ -1,5 +1,9 @@
-$footer-color-text: #b79c7d;
+$footer-color-text: var(--footer-text-color);
 $footer-color-text--hover: #96664d;
+
+footer {
+  background: var(--footer-bg-color);
+}
 
 //TODO quick fix for now
 footer *:not(i) {
