@@ -16,6 +16,14 @@ header .eltd-menu-area {
   width: 100%;
 }
 
+.header__sticky-container {
+  display: initial;
+
+  .eltd-sticky-header {
+    padding: 0 !important;
+  }
+}
+
 .header__left-area,
 .header__right-area {
   flex-basis: 0;
@@ -47,7 +55,8 @@ $margin-header-area: 20px;
   margin-top: 40px;
 }
 
-.header .menu-item .item_text {
+.header .menu-item .item_text,
+.header__sticky-container .menu-item .item_text {
   color: var(--header-text-color);
   font-size: 1rem;
 }

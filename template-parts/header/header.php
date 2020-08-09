@@ -10,6 +10,11 @@ $page_settings_model = $page_settings_manager->get_model($post_id);
 
 // Retrieve the color we added before
 $is_header_fixed = $page_settings_model->get_settings('fixed_header') === 'yes';
+
+$header_behavior = creator_elated_options()->getOptionValue('header_behaviour');
+$show_sticky = in_array($header_behavior, ['sticky-header-on-scroll-up', 'sticky-header-on-scroll-down-up'])
+    ? true
+    : false;
 ?>
 
 <header class="header<?php if ($is_header_fixed) {
@@ -28,9 +33,9 @@ $is_header_fixed = $page_settings_model->get_settings('fixed_header') === 'yes';
 </header>
 
 
-<header class="eltd-page-header">
+<header class="header__sticky-container eltd-page-header">
 	<?php if ($show_sticky) {
-     creator_elated_get_sticky_header();
+     get_template_part('template-parts/header/sticky-header');
  } ?>
 </header>
 
