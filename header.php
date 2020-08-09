@@ -41,8 +41,7 @@ if (!creator_elated_is_ajax_request() && creator_elated_options()->getOptionValu
             //creator_elated_get_header();
         } ?>
 
-        <?php
-        if (
+        <?php if (
             !creator_elated_is_ajax_request() &&
             creator_elated_options()->getOptionValue('show_back_button') == 'yes'
         ) { ?>
@@ -52,8 +51,8 @@ if (!creator_elated_is_ajax_request() && creator_elated_options()->getOptionValu
                 </span>
             </a>
         <?php }
-        creator_elated_get_full_screen_menu();
-        ?>
+//creator_elated_get_full_screen_menu();
+?>
 
         <div class="eltd-content" <?php creator_elated_content_elem_style_attr(); ?>>
             <?php if (creator_elated_is_ajax_enabled()) { ?>
