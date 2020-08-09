@@ -28,17 +28,11 @@ header .eltd-menu-area {
 .header__right-area {
   flex-basis: 0;
   flex-grow: 1;
+  margin: 0 20px;
 }
-
-$margin-header-area: 20px;
 
 .header__left-area {
   text-align: right;
-  margin-right: $margin-header-area;
-}
-
-.header__left-area {
-  margin-left: $margin-header-area;
 }
 
 .header__logo {
