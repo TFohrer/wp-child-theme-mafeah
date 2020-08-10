@@ -57,9 +57,15 @@ class Contact_Form_Widget extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        echo do_shortcode(
-            '[contact-form-7 id="' . $settings['contact_form_list'] . '" html_class="' . $settings['html_class'] . '" ]'
-        );
+        if ($settings['contact_form_list'] !== '0') {
+            echo do_shortcode(
+                '[contact-form-7 id="' .
+                    $settings['contact_form_list'] .
+                    '" html_class="' .
+                    $settings['html_class'] .
+                    '" ]'
+            );
+        }
 
         return;
     }

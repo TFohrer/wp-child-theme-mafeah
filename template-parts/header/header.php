@@ -25,7 +25,9 @@ $show_sticky = in_array($header_behavior, ['sticky-header-on-scroll-up', 'sticky
         <?php creator_elated_get_left_menu(); ?>
     </div>
     <div class="header__logo">
-        <img src="<?php echo esc_url(get_theme_mod('header_logo')); ?>" alt="Mafeah Header Logo">
+        <a href="<?php echo get_home_url(); ?>">
+            <img src="<?php echo esc_url(get_theme_mod('header_logo')); ?>" alt="Mafeah Header Logo">
+        </a>
     </div>
     <div class="header__right-area">
         <?php creator_elated_get_right_menu(); ?>

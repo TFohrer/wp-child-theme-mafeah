@@ -38,6 +38,10 @@ header .eltd-menu-area {
 .header__logo {
   width: 175px;
 
+  a {
+    display: block;
+  }
+
   img {
     max-width: 100%;
   }
