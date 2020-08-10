@@ -43,7 +43,6 @@ class Contact_Form_Widget extends Widget_Base
         $this->add_control('html_class', [
             'label' => __('Style', 'mafeah'),
             'type' => Controls_Manager::SELECT,
-            'default' => '3',
             'options' => [
                 'default' => __('Default', 'mafeah'),
                 'cf7_custom_style_1' => __('Custom Style 1', 'mafeah'),

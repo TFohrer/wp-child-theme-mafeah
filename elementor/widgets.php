@@ -118,6 +118,7 @@ class My_Elementor_Widgets
         require_once 'widgets/testimonials-carousel.php';
         require_once 'widgets/product-list.php';
         require_once 'widgets/contact-form.php';
+        require_once 'widgets/button.php';
     }
 
     public function register_widgets()
@@ -127,6 +128,7 @@ class My_Elementor_Widgets
         $this->elementor->widgets_manager->register_widget_type(new \Elementor\Testimonials_Carousel_Widget());
         $this->elementor->widgets_manager->register_widget_type(new \Elementor\Product_List_Widget());
         $this->elementor->widgets_manager->register_widget_type(new \Elementor\Contact_Form_Widget());
+        $this->elementor->widgets_manager->register_widget_type(new \Elementor\Button_Widget());
     }
 
     public function remove_widgets()
