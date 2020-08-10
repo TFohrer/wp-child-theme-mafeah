@@ -6,8 +6,6 @@ use Elementor\Controls_Manager as Controls_Manager;
 
 class Product_List_Widget extends Widget_Base
 {
-    const TESTIMONIALS_TAXONOMY = 'testimonials_category';
-
     public function get_name()
     {
         return 'mafeah-product-list';
@@ -200,11 +198,6 @@ class Product_List_Widget extends Widget_Base
         }
 
         return $options;
-    }
-
-    private function get_testimonials_categories()
-    {
-        return get_categories(['taxonomy' => self::TESTIMONIALS_TAXONOMY]);
     }
 
     private function get_products($params)
