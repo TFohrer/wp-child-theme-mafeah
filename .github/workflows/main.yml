@@ -21,11 +21,9 @@ jobs:
         with:
           path: project
 
-      - name: Install composer dependencies
-        uses: php-actions/composer@v1
-        with:
-          command: composer install
-          entryPoint: project
+      - name: Install Composer Dependencies
+        working-directory: project
+        run: composer install --prefer-dist
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
