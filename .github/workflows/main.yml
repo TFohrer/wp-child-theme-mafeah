@@ -25,7 +25,7 @@ jobs:
         uses: php-actions/composer@v1
         with:
           command: composer install
-          working-directory: project
+          entryPoint: project
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
