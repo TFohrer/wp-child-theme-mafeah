@@ -7,6 +7,7 @@ header .eltd-menu-area {
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: var(--header-bg-color);
 }
 
 .header--fixed {
@@ -64,7 +65,7 @@ header .eltd-menu-area {
 .header .menu-item .item_text,
 .header__sticky-container .menu-item .item_text {
   color: var(--header-text-color);
-  font-size: 1rem;
+  font-size: var(--header-font-size);
 }
 
 // fix to show dropdown items (body has a z-index of 100)

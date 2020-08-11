@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 $manifestStr = file_get_contents(dirname(__FILE__) . '/build/manifest.json');
 $manifest = json_decode($manifestStr, true);
 
@@ -138,3 +140,7 @@ if (!is_admin()) {
 
 include_once 'elated/header-config.php';
 include_once 'elated/header-dynamic-styles.php';
+
+add_action('customize_register', function ($wp_customize) {
+    $wp_customize->register_control_type('\WPTRT\Customize\Control\ColorAlpha');
+});

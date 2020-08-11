@@ -14,3 +14,7 @@ modules.xml
 vcs.xml
 workspace.xml
 prettier.xml
+
+
+# composer
+vendor/

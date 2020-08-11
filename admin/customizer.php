@@ -1,5 +1,9 @@
 <?php
 
+// prettier-ignore
+use \WPTRT\Customize\Control\ColorAlpha;
+
+// prettier-ignore
 class Mafeah_Customizer
 {
     private $wp_customize;
@@ -7,6 +11,7 @@ class Mafeah_Customizer
     private $defaults = [
         'header' => [
             'text-color' => '#96664d',
+            'font-size' => 16
         ],
         'footer' => [
             'bg-color' => '#333',
@@ -49,6 +54,39 @@ class Mafeah_Customizer
                 'label' => 'Text Color',
                 'section' => 'mafeah_header_options',
                 'settings' => 'header_text_color',
+            ])
+        );
+
+        $this->wp_customize->add_setting( 'header_font_size', array(
+            'sanitize_callback' => 'mafeah_sanitize_number_absint',
+            'default' => 16,
+          ) );
+          
+        $this->wp_customize->add_control( 'header_font_size', array(
+            'type' => 'number',
+            'settings' => 'header_font_size',
+            'section' => 'mafeah_header_options', // Add a default or your own section
+            'label' => __( 'Font Size (px)'),
+          ) );
+          
+          function mafeah_sanitize_number_absint( $number, $setting ) {
+            // Ensure $number is an absolute integer (whole number, zero or greater).
+            $number = absint( $number );
+          
+            // If the input is an absolute integer, return it; otherwise, return the default
+            return ( $number ? $number : $setting->default );
+          }
+
+        $this->wp_customize->add_setting('header_background_color', [
+            'default' => 'rgba(255,255,255,0)', // Use any HEX or RGBA value.
+            'transport' => 'postMessage',
+        ]);
+
+        $this->wp_customize->add_control(
+            new ColorAlpha($this->wp_customize, 'header_background_color', [
+                'label' => __('Header Background Color', 'mafeah'),
+                'section' => 'mafeah_header_options',
+                'settings' => 'header_background_color',
             ])
         );
     }
@@ -105,6 +143,8 @@ function mafeah_customizer_header_output()
 
         :root {
             --header-text-color: <?php echo esc_attr(get_theme_mod('header_text_color')); ?>; 
+            --header-bg-color: <?php echo esc_attr(get_theme_mod('header_background_color')); ?>;
+            --header-font-size: <?php echo esc_attr(get_theme_mod('header_font_size')).'px'; ?>;
             --footer-bg-color: <?php echo esc_attr(get_theme_mod('footer_background_color')); ?>;
             --footer-text-color: <?php echo esc_attr(get_theme_mod('footer_text_color')); ?>;
         }
