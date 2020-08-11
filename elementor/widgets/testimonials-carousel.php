@@ -45,6 +45,17 @@ class Testimonials_Carousel_Widget extends Widget_Base
             'placeholder' => __('Number of Testimonials', 'elementor'),
         ]);
 
+        $this->add_control('type', [
+            'label' => __('Type', 'mafeah'),
+            'label_block' => true,
+            'type' => Controls_Manager::SELECT,
+            'options' => [
+                'with-icon' => __('With Icon', 'mafeah'),
+                'standard' => __('Standard', 'mafeah'),
+                'cards' => __('Cards', 'mafeah'),
+            ],
+        ]);
+
         $this->add_control('skin', [
             'label' => __('Skin', 'elementor'),
             'label_block' => true,
@@ -65,6 +76,9 @@ class Testimonials_Carousel_Widget extends Widget_Base
                 '4' => '4',
                 '5' => '5',
             ],
+            'condition' => [
+                'type' => ['cards', 'standard'],
+            ],
         ]);
 
         $this->add_control('navigation', [
@@ -74,6 +88,16 @@ class Testimonials_Carousel_Widget extends Widget_Base
             'options' => [
                 'no' => __('No', 'creator'),
                 'yes' => __('Yes', 'creator'),
+            ],
+        ]);
+
+        $this->add_control('pagination', [
+            'label' => __('Pagination', 'mafeah'),
+            'label_block' => true,
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'options' => [
+                'no' => __('No', 'mafeah'),
+                'yes' => __('Yes', 'mafeah'),
             ],
         ]);
 
@@ -111,52 +135,97 @@ class Testimonials_Carousel_Widget extends Widget_Base
         $html = '';
 
         if ($posts->have_posts()) {
-            $html .= '<div class="eltd-testimonials-holder clearfix">';
-            $html .=
-                '<div class="eltd-testimonials eltd-standard' .
-                ' ' .
-                $params['skin'] .
-                '" ' .
-                creator_elated_get_inline_attrs($data_attr) .
-                '>';
+            switch ($type) {
+                case 'with-icon':
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
 
-            while ($posts->have_posts()) {
-                $posts->the_post();
+                        $params['icon'] = $this->getIconHtml();
+                        $params['author'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author', true);
+                        $params['text'] = get_post_meta(get_the_ID(), 'eltd_testimonial_text', true);
+                        $params['current_id'] = get_the_ID();
 
-                $params['current_id'] = get_the_ID();
-                $params['title'] = get_post_meta(get_the_ID(), 'eltd_testimonial_title', true);
-                $params['text'] = get_post_meta(get_the_ID(), 'eltd_testimonial_text', true);
-                $params['author'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author', true);
-                $params['position'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author_position', true);
-                $params['social_network_objects'] = $this->getTestimonialSocialNetworks(get_the_ID());
+                        $html .= eltd_core_get_shortcode_module_template_part(
+                            'testimonials',
+                            'testimonials-with-icon',
+                            '',
+                            $params
+                        );
+                    }
+                    break;
+                case 'cards':
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
 
-                if (has_post_thumbnail()) {
-                    $params['image'] = get_the_post_thumbnail(null, [70, 70]);
-                } else {
-                    $params['image'] = false;
-                }
+                        $params['current_id'] = get_the_ID();
+                        $params['title'] = get_post_meta(get_the_ID(), 'eltd_testimonial_title', true);
+                        $params['text'] = get_post_meta(get_the_ID(), 'eltd_testimonial_text', true);
+                        $params['author'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author', true);
+                        $params['position'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author_position', true);
+                        if (has_post_thumbnail()) {
+                            $params['image'] = get_the_post_thumbnail(null, [67, 67]);
+                        } else {
+                            $params['image'] = false;
+                        }
 
-                if ($params['two_rows'] == 'yes' && $posts->current_post % 2 == 0) {
-                    $html .= '<div class="eltd-testimonial-items-holder">';
-                }
+                        if ($params['two_rows'] == 'yes' && $posts->current_post % 2 == 0) {
+                            $html .= '<div class="eltd-testimonial-items-holder">';
+                        }
 
-                $html .= eltd_core_get_shortcode_module_template_part(
-                    'testimonials',
-                    'testimonials-standard',
-                    '',
-                    $params
-                );
+                        $html .= eltd_core_get_shortcode_module_template_part(
+                            'testimonials',
+                            'testimonials-cards',
+                            '',
+                            $params
+                        );
 
-                if ($params['two_rows'] == 'yes' && $posts->current_post % 2 !== 0) {
-                    $html .= '</div>';
-                }
+                        if ($params['two_rows'] == 'yes' && $posts->current_post % 2 !== 0) {
+                            $html .= '</div>';
+                        }
+                    }
+                    break;
+                case 'standard':
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
+
+                        $params['current_id'] = get_the_ID();
+                        $params['title'] = get_post_meta(get_the_ID(), 'eltd_testimonial_title', true);
+                        $params['text'] = get_post_meta(get_the_ID(), 'eltd_testimonial_text', true);
+                        $params['author'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author', true);
+                        $params['position'] = get_post_meta(get_the_ID(), 'eltd_testimonial_author_position', true);
+                        $params['social_network_objects'] = $this->getTestimonialSocialNetworks(get_the_ID());
+
+                        if (has_post_thumbnail()) {
+                            $params['image'] = get_the_post_thumbnail(null, [70, 70]);
+                        } else {
+                            $params['image'] = false;
+                        }
+
+                        if ($params['two_rows'] == 'yes' && $posts->current_post % 2 == 0) {
+                            $html .= '<div class="eltd-testimonial-items-holder">';
+                        }
+
+                        $html .= eltd_core_get_shortcode_module_template_part(
+                            'testimonials',
+                            'testimonials-standard',
+                            '',
+                            $params
+                        );
+
+                        if ($params['two_rows'] == 'yes' && $posts->current_post % 2 !== 0) {
+                            $html .= '</div>';
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
-
-            $html .= '</div>';
-            $html .= '</div>';
         } else {
-            $html .= '<p>' . __('Sorry, no posts matched your criteria.', 'creator') . '</p>';
+            $html .= __('Sorry, no posts matched your criteria.', 'eltd_core');
         }
+        wp_reset_postdata();
+        $html .= '</div>';
+        $html .= '</div>';
 
         echo $html;
     }
