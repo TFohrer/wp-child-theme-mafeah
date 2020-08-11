@@ -113,7 +113,6 @@ class Testimonials_Carousel_Widget extends Widget_Base
 
     protected function render()
     {
-        $html = '';
         $settings = $this->get_settings_for_display();
 
         $args = [
@@ -132,7 +131,18 @@ class Testimonials_Carousel_Widget extends Widget_Base
         $posts = $this->get_testimonials($params);
         $data_attr = $this->getDataParams($params);
 
+        extract($params);
+
         $html = '';
+        $html .= '<div class="eltd-testimonials-holder clearfix">';
+        $html .=
+            '<div class="eltd-testimonials eltd-' .
+            $type .
+            ' ' .
+            $skin .
+            '" ' .
+            creator_elated_get_inline_attrs($data_attr) .
+            '>';
 
         if ($posts->have_posts()) {
             switch ($type) {
@@ -226,12 +236,23 @@ class Testimonials_Carousel_Widget extends Widget_Base
         wp_reset_postdata();
         $html .= '</div>';
         $html .= '</div>';
-
+        $html .= $this->previewJS();
         echo $html;
     }
 
     protected function _content_template()
     {
+    }
+
+    // init testimonial slider manually in preview mode
+    private function previewJS()
+    {
+        $response = '';
+
+        if (Plugin::$instance->editor->is_edit_mode()) {
+            $response .= '<script>eltd.modules.shortcodes.eltdInitTestimonials();</script>';
+        }
+        return $response;
     }
 
     private function getTestimonialSocialNetworks($id)
