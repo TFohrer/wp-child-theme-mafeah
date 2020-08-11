@@ -36,11 +36,6 @@
     "last 2 versions",
     "> 5%"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "author": "TF",
   "license": "MIT"
 }
