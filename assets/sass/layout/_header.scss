@@ -24,6 +24,14 @@ header .eltd-menu-area {
   }
 }
 
+// hide header on mobile
+.header,
+.header__sticky-container {
+  @include breakpoint-down(desktopElated) {
+    display: none;
+  }
+}
+
 .header__left-area,
 .header__right-area {
   flex-basis: 0;
