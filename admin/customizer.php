@@ -145,6 +145,9 @@ function mafeah_customizer_header_output()
             --header-text-color: <?php echo esc_attr(get_theme_mod('header_text_color')); ?>; 
             --header-bg-color: <?php echo esc_attr(get_theme_mod('header_background_color')); ?>;
             --header-font-size: <?php echo esc_attr(get_theme_mod('header_font_size')).'px'; ?>;
+        }
+
+        footer{
             --footer-bg-color: <?php echo esc_attr(get_theme_mod('footer_background_color')); ?>;
             --footer-text-color: <?php echo esc_attr(get_theme_mod('footer_text_color')); ?>;
         }
@@ -162,7 +165,7 @@ function mafeah_customize_preview_js()
     wp_enqueue_script(
         'mafeah-customizer-preview-script',
         get_stylesheet_directory_uri() . '/assets/js/admin/customizer-preview.js',
-        ['jquery', 'customize-preview']
+        ['customize-preview']
     );
 }
 add_action('customize_preview_init', 'mafeah_customize_preview_js');
