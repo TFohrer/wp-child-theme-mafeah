@@ -14,6 +14,16 @@ if (!function_exists('creator_elated_child_theme_enqueue_scripts')) {
         wp_enqueue_style('creator-elated-handle-child-style', get_stylesheet_directory_uri() . '/style.css', [
             $parent_style,
         ]);
+
+        // intermediate loading of old / elated woocomerce styles
+        wp_enqueue_style(
+            'creator-elated-handle-child-woocommerce',
+            get_stylesheet_directory_uri() . '/elated/styles/woocommerce.css'
+        );
+        wp_enqueue_style(
+            'creator-elated-handle-child-woocommerce-responsive',
+            get_stylesheet_directory_uri() . '/elated/styles/woocommerce-responsive.css'
+        );
     }
 
     add_action('wp_enqueue_scripts', 'creator_elated_child_theme_enqueue_scripts');
@@ -141,6 +151,7 @@ if (!is_admin()) {
 // ELATED parent theme
 // disable stuff
 include_once 'elated/disable/header.php';
+include_once 'elated/disable/main.php';
 
 add_action('customize_register', function ($wp_customize) {
     $wp_customize->register_control_type('\WPTRT\Customize\Control\ColorAlpha');
