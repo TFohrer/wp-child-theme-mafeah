@@ -5,7 +5,8 @@ header nav {
 }
 
 // TODO refactor
-*:not(i):not(.fa) {
+html,
+body {
   font-family: 'Abel', Abel;
 }
 
