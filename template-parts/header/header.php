@@ -41,5 +41,5 @@ $show_sticky = in_array($header_behavior, ['sticky-header-on-scroll-up', 'sticky
  } ?>
 </header>
 
-<?php do_action('creator_elated_after_page_header'); ?>
+<?php get_template_part('template-parts/header/mobile-header'); ?>
 

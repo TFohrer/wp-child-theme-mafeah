@@ -72,3 +72,12 @@ header .eltd-menu-area {
 .header .eltd-drop-down .second {
   z-index: 999 !important;
 }
+
+// mobile nav
+.eltd-mobile-header .eltd-mobile-nav > .eltd-grid > ul > li:last-child > a {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.eltd-mobile-logo-wrapper a {
+  height: 80px;
+}
