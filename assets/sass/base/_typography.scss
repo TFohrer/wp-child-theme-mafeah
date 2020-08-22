@@ -4,8 +4,9 @@ header nav {
   font-family: 'Abel', Abel !important;
 }
 
-* {
-  font-family: 'Abel', Abel;
+// TODO refactor
+*:not(i):not(.fa) {
+  font-family: 'Abel', Abel !important;
 }
 
 body {
