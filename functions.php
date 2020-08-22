@@ -138,8 +138,9 @@ if (!is_admin()) {
     add_action('wp_head', 'jquery_parallax');
 }
 
-include_once 'elated/header-config.php';
-include_once 'elated/header-dynamic-styles.php';
+// ELATED parent theme
+// disable stuff
+include_once 'elated/disable/header.php';
 
 add_action('customize_register', function ($wp_customize) {
     $wp_customize->register_control_type('\WPTRT\Customize\Control\ColorAlpha');
