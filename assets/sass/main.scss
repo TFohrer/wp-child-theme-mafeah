@@ -7,3 +7,19 @@
 @import 'layout/footer';
 
 @import 'pages/product-detail';
+
+// maintenance notice
+
+.woocommerce-store-notice.demo_store {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  display: block;
+  z-index: 1001;
+  padding: 40px;
+  color: white;
+  margin: 0;
+  text-align: center;
+}

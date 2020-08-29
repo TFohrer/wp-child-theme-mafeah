@@ -45,7 +45,7 @@ header .eltd-menu-area {
 }
 
 .header__logo {
-  width: 175px;
+  width: var(--header-logo-width, 150px);
 
   a {
     display: block;

@@ -1,9 +1,9 @@
 <?php
 
-// prettier-ignore
-use \WPTRT\Customize\Control\ColorAlpha;
+// prettier-ignore-start
+use WPTRT\Customize\Control\ColorAlpha;
+// prettier-ignore-end
 
-// prettier-ignore
 class Mafeah_Customizer
 {
     private $wp_customize;
@@ -11,7 +11,8 @@ class Mafeah_Customizer
     private $defaults = [
         'header' => [
             'text-color' => '#96664d',
-            'font-size' => 16
+            'font-size' => 16,
+            'logo-width' => 150,
         ],
         'footer' => [
             'bg-color' => '#333',
@@ -44,6 +45,19 @@ class Mafeah_Customizer
             ])
         );
 
+        $this->wp_customize->add_setting('header_logo_width', [
+            'sanitize_callback' => 'mafeah_sanitize_number_absint',
+            'default' => $this->defaults['header']['logo-width'],
+            'transport' => 'refresh',
+        ]);
+
+        $this->wp_customize->add_control('header_logo_width', [
+            'type' => 'number',
+            'label' => 'Header Logo Width (px)',
+            'section' => 'mafeah_header_options',
+            'settings' => 'header_logo_width',
+        ]);
+
         $this->wp_customize->add_setting('header_text_color', [
             'default' => $this->defaults['header']['text-color'],
             'transport' => 'refresh',
@@ -57,28 +71,27 @@ class Mafeah_Customizer
             ])
         );
 
-        $this->wp_customize->add_setting( 'header_font_size', array(
+        $this->wp_customize->add_setting('header_font_size', [
             'sanitize_callback' => 'mafeah_sanitize_number_absint',
             'default' => 16,
-          ) );
-          
-        $this->wp_customize->add_control( 'header_font_size', array(
+        ]);
+
+        $this->wp_customize->add_control('header_font_size', [
             'type' => 'number',
             'settings' => 'header_font_size',
-            'section' => 'mafeah_header_options', // Add a default or your own section
-            'label' => __( 'Font Size (px)'),
-          ) );
-          
-          function mafeah_sanitize_number_absint( $number, $setting ) {
-            // Ensure $number is an absolute integer (whole number, zero or greater).
-            $number = absint( $number );
-          
-            // If the input is an absolute integer, return it; otherwise, return the default
-            return ( $number ? $number : $setting->default );
-          }
+            'section' => 'mafeah_header_options',
+            'label' => __('Font Size (px)'),
+        ]);
+
+        function mafeah_sanitize_number_absint($number, $setting)
+        {
+            $number = absint($number);
+
+            return $number ? $number : $setting->default;
+        }
 
         $this->wp_customize->add_setting('header_background_color', [
-            'default' => 'rgba(255,255,255,0)', // Use any HEX or RGBA value.
+            'default' => 'rgba(255,255,255,0)',
             'transport' => 'postMessage',
         ]);
 
@@ -89,6 +102,10 @@ class Mafeah_Customizer
                 'settings' => 'header_background_color',
             ])
         );
+    }
+
+    public function add_button_options()
+    {
     }
 
     public function add_footer_options()
@@ -141,10 +158,12 @@ function mafeah_customizer_header_output()
     ?>
     <style type="text/css">
 
-        :root {
+        header,
+        .header{
             --header-text-color: <?php echo esc_attr(get_theme_mod('header_text_color')); ?>; 
             --header-bg-color: <?php echo esc_attr(get_theme_mod('header_background_color')); ?>;
-            --header-font-size: <?php echo esc_attr(get_theme_mod('header_font_size')).'px'; ?>;
+            --header-font-size: <?php echo esc_attr(get_theme_mod('header_font_size')) . 'px'; ?>;
+            --header-logo-width: <?php echo esc_attr(get_theme_mod('header_logo_width')) . 'px'; ?>;
         }
 
         footer{

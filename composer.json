@@ -1,5 +1,5 @@
 {
-    "require": {
-        "wptrt/control-color-alpha": "^1.1"
-    }
+  "require": {
+    "wptrt/control-color-alpha": "^1.1"
+  }
 }
