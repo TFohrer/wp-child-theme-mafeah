@@ -49,18 +49,13 @@ jobs:
 
       - name: cleanup
         run: |
-          rm -rf .git
-          rm -rf .github
           rm -rf node_modules
-          rm -rf .vscode
-          rm -f .gitignore
-          rm -f .eslintrc.json
-          rm -f .prettierrc
-          rm -f .package-lock.json
-          rm -f .package.json
           rm -f yarn.lock
+          rm -f package-lock.json
+          rm -f package.json
           rm -f postcss.config.js
-          rm -f prettier.config.js 
+          rm -f prettier.config.js
+          rm -f webpack.config.js 
         working-directory: project
 
       # no rsync available on the server so we need to use scp
