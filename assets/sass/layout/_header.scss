@@ -91,6 +91,12 @@ header .eltd-menu-area {
   margin-right: 15px;
   text-align: right;
   flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__shop-icons > div {
+  margin: 0 10px;
 }
 
 // sticky header
