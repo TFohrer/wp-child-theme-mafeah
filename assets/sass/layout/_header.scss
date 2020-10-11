@@ -44,6 +44,10 @@ header .eltd-menu-area {
   text-align: right;
 }
 
+.header__right-area {
+  display: flex;
+}
+
 .header__logo {
   width: var(--header-logo-width, 150px);
 
@@ -80,4 +84,10 @@ header .eltd-menu-area {
 
 .eltd-mobile-logo-wrapper a {
   height: 80px;
+}
+
+.header__shop-icons {
+  margin-top: 40px;
+  text-align: right;
+  flex-grow: 1;
 }
