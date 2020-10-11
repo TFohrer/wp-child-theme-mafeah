@@ -87,7 +87,21 @@ header .eltd-menu-area {
 }
 
 .header__shop-icons {
-  margin-top: 40px;
+  margin-top: 35px;
+  margin-right: 15px;
   text-align: right;
   flex-grow: 1;
+}
+
+// sticky header
+
+.header__sticky-container .eltd-position-right-inner {
+  margin-right: 10px;
+  &:before {
+    content: none;
+  }
+
+  .widget widget_eltd_woocommerce_dropdown_cart {
+    margin-right: 15px;
+  }
 }
