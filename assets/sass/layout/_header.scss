@@ -95,13 +95,14 @@ header .eltd-menu-area {
 
 // sticky header
 
-.header__sticky-container .eltd-position-right-inner {
+.header__sticky-container .eltd-position-right {
   margin-right: 10px;
+
   &:before {
-    content: none;
+    content: none !important;
   }
 
-  .widget widget_eltd_woocommerce_dropdown_cart {
+  .widget_eltd_woocommerce_dropdown_cart {
     margin-right: 15px;
   }
 }
