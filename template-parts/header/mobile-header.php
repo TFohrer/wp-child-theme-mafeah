@@ -6,7 +6,7 @@ $menu_opener_icon = creator_elated_icon_collections()->getMobileMenuIcon(
 );
 ?>
 
-<header class="eltd-mobile-header">
+<header class="eltd-mobile-header header__mobile-container">
     <div class="eltd-mobile-header-inner">
         <?php do_action('creator_elated_after_mobile_header_html_open'); ?>
         <div class="eltd-mobile-header-holder">
@@ -30,9 +30,13 @@ $menu_opener_icon = creator_elated_icon_collections()->getMobileMenuIcon(
                     </div>
                     <div class="eltd-position-right">
                         <div class="eltd-position-right-inner">
-                            <?php if (is_active_sidebar('eltd-right-from-mobile-logo')) {
-                                dynamic_sidebar('eltd-right-from-mobile-logo');
-                            } ?>
+                        <div class="header__shop-icons">
+                                <?php the_widget('CreatorElatedWoocommerceDropdownCart'); ?>
+
+                                <div class="header-shop-icons__account">
+                                    <a href="/my-account" rel="nofollow"><i class="fa fa-user"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- close .eltd-vertical-align-containers -->

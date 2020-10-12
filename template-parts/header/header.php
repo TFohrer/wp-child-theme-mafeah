@@ -36,7 +36,7 @@ $show_sticky = in_array($header_behavior, ['sticky-header-on-scroll-up', 'sticky
             <?php the_widget('CreatorElatedWoocommerceDropdownCart'); ?>
 
             <div class="header-shop-icons__account">
-                <a href="/my-account"><i class="fa fa-user"></i></a>
+                <a href="/my-account" rel="nofollow"><i class="fa fa-user"></i></a>
             </div>
         </div>
     </div>

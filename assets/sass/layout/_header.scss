@@ -101,7 +101,8 @@ header .eltd-menu-area {
 
 // sticky header
 
-.header__sticky-container .eltd-position-right {
+.header__sticky-container .eltd-position-right,
+.header__mobile-container .eltd-position-right {
   margin-right: 25px;
 
   &:before {
