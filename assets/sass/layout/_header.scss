@@ -87,7 +87,7 @@ header .eltd-menu-area {
 }
 
 .header__shop-icons {
-  margin-top: 35px;
+  margin-top: 30px;
   margin-right: 15px;
   text-align: right;
   flex-grow: 1;
@@ -96,13 +96,13 @@ header .eltd-menu-area {
 }
 
 .header__shop-icons > div {
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
 // sticky header
 
 .header__sticky-container .eltd-position-right {
-  margin-right: 10px;
+  margin-right: 25px;
 
   &:before {
     content: none !important;
