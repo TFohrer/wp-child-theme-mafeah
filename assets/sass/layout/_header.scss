@@ -99,17 +99,23 @@ header .eltd-menu-area {
   margin: 0 15px;
 }
 
-// sticky header
-
 .header__sticky-container .eltd-position-right,
 .header__mobile-container .eltd-position-right {
-  margin-right: 25px;
-
   &:before {
     content: none !important;
   }
 
   .widget_eltd_woocommerce_dropdown_cart {
     margin-right: 15px;
+  }
+}
+
+// sticky header
+
+.header__mobile-container .eltd-position-right {
+  .header__shop-icons {
+    height: 100%;
+    margin: 0;
+    align-items: center;
   }
 }
